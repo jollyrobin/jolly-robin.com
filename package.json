@@ -4,5 +4,11 @@
   "description": "Source code for jolly-robin.com",
   "main": "index.js",
   "author": "Peter Duncan <peter@jolly-robin.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts":{
+  	"gulp": "gulp"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
 }
