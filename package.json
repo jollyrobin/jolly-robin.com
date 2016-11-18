@@ -5,10 +5,12 @@
   "main": "index.js",
   "author": "Peter Duncan <peter@jolly-robin.com>",
   "license": "MIT",
-  "scripts":{
-  	"gulp": "gulp"
+  "scripts": {
+    "gulp": "gulp"
   },
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "browser-sync": "^2.17.6",
+    "gulp": "^3.9.1",
+    "gulp-gh-pages": "^0.5.4"
   }
 }
