@@ -1,7 +1,14 @@
 var gulp = require('gulp');
 var ghPages = require('gulp-gh-pages');
+var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
 
+gulp.task('sass', function () {
+  return gulp.src('./app/styles/**/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./dist/styles'));
+});
+ 
 gulp.task('default', function(){
 	console.log('Hello')
 });
@@ -12,13 +19,15 @@ gulp.task('build', function(){
 });
 
 // Static server
-gulp.task('serve', ['build'], function() {
+gulp.task('serve', ['build', 'sass'], function() {
 	browserSync.init({
 		server: {
 			baseDir: "./dist"
 		}
 	});
 
+
+	gulp.watch('./app/styles/**/*.scss', ['sass']);
 	gulp.watch("app/**/*", ['build']);
 
 	gulp.watch("dist/**/*").on('change', browserSync.reload);
